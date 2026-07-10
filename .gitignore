@@ -1,0 +1,21 @@
+# Build outputs — the .mcpb is produced by `npm run build`, never committed
+*.mcpb
+
+# Dependencies — restored by `npm install` (package-lock.json IS committed)
+node_modules/
+
+# Local/OS noise
+.DS_Store
+*.log
+
+# Claude Code local settings (per-machine)
+.claude/settings.local.json
+
+# IntelliJ
+.shelf/
+.idea/*
+#!.idea/codeStyleSettings.xml
+#!.idea/runConfigurations
+*.iml
+*.ipr
+*.iws
