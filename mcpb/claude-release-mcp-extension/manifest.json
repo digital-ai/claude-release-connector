@@ -1,0 +1,73 @@
+{
+  "manifest_version": "0.2",
+  "name": "digitalai-release-mcp",
+  "display_name": "Digital.ai Release MCP Server",
+  "version": "1.0.0",
+  "description": "Connect Claude to your Digital.ai Release instance: search and manage releases, templates, tasks, variables and more.",
+  "long_description": "Gives Claude access to the MCP server built into Digital.ai Release (26.1.5+). Claude can list and inspect releases and templates, create releases from templates, start releases, manage folders, phases, tasks, gates, variables and configurations, and read activity logs \u2014 all with the permissions of the Release user whose Personal Access Token you configure. Mutating tools respect the Release MCP server's read-only mode.",
+  "author": {
+    "name": "Digital.ai",
+    "url": "https://digital.ai",
+    "email": "support@digital.ai"
+  },
+  "homepage": "https://digital.ai/products/release/",
+  "documentation": "https://docs.digital.ai/release/docs/how-to/release-mcp-server",
+  "license": "Apache-2.0",
+  "icon": "icon.png",
+  "keywords": [
+    "digital.ai",
+    "release",
+    "devops",
+    "release-orchestration",
+    "cicd"
+  ],
+  "privacy_policies": [
+    "https://digital.ai/privacy-policy/"
+  ],
+  "user_config": {
+    "release_url": {
+      "type": "string",
+      "title": "Release server URL",
+      "description": "https://release.mycompany.com \u2014 the base URL of your Release instance. \u2014 If your server uses a non-default servlet path or context root, paste the full MCP endpoint URL instead.",
+      "required": true
+    },
+    "personal_access_token": {
+      "type": "string",
+      "title": "Personal Access Token",
+      "description": "Create one in Release under User profile > Access tokens. Claude acts with this user's permissions.",
+      "sensitive": true,
+      "required": true
+    }
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {
+        "RELEASE_URL": "${user_config.release_url}",
+        "RELEASE_PAT": "${user_config.personal_access_token}"
+      }
+    }
+  },
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=18"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digital-ai/claude-release-connector"
+  },
+  "support": "https://support.digital.ai",
+  "tools_generated": true
+}

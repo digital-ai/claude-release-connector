@@ -1,0 +1,15 @@
+{
+  "name": "digitalai-release-mcp",
+  "version": "1.0.0",
+  "description": "Claude Desktop extension (MCPB) bridging to the Digital.ai Release MCP server",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "Digital.ai",
+  "scripts": {
+    "validate": "npx --yes @anthropic-ai/mcpb validate manifest.json",
+    "build": "npx --yes @anthropic-ai/mcpb validate manifest.json && npx --yes @anthropic-ai/mcpb pack . digitalai-release-mcp.mcpb"
+  },
+  "dependencies": {
+    "mcp-remote": "0.1.38"
+  }
+}
