@@ -13,11 +13,16 @@ and read activity logs — always with the permissions of the connected Release 
 - **Tools require the `xlr-mcp-tools-plugin`** (bundled/installed as a Release plugin).
 - **Every action is authorized as the connected user** through Release's normal permission model.
 
-## Authentication: Personal Access Token
+## Authentication
 
 Claude authenticates to the MCP endpoint with a Release **Personal Access Token (PAT)**, sent as
 the `x-release-personal-token` request header. This works on every Release 26.1.5+ installation and
 needs no server-side setup.
+
+The Claude Desktop extension can alternatively sign you in through your organization's **OIDC
+identity provider** (OAuth 2.1 + PKCE, SSO and MFA included) — leave the token field empty. This
+requires a Release instance configured with an identity provider, and the provider must allow the
+extension's dynamic client registration.
 
 **Creating a PAT:** Release → user profile → **Access tokens** → create; copy the `rpa_…` value.
 Claude will act with exactly this user's permissions; use a least-privilege account for
@@ -32,7 +37,9 @@ directory, or by double-clicking the `digitalai-release-mcp.mcpb` file):
 2. In the configuration form:
    - **Release server URL** — e.g. `https://release.mycompany.com`. If your server uses a
      non-default servlet path or context root, paste the full endpoint URL.
-   - **Personal Access Token** — create one in Release under *User profile → Access tokens*
+   - **Personal Access Token** — create one in Release under *User profile → Access tokens*,
+     **or leave it empty to sign in through your identity provider** (a browser login opens on
+     first use)
 3. Enable the extension and ask Claude: *"List my active releases."*
 
 Notes: the token is stored in your OS keychain. Your machine connects directly to the Release
