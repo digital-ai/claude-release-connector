@@ -33,10 +33,10 @@
     },
     "personal_access_token": {
       "type": "string",
-      "title": "Personal Access Token",
-      "description": "Create one in Release under User profile > Access tokens. Claude acts with this user's permissions.",
+      "title": "Personal Access Token (leave empty to sign in with OAuth)",
+      "description": "Create one in Release under User profile > Access tokens. Leave empty to sign in through your identity provider instead (requires Release configured with OIDC; a browser login opens on first use).",
       "sensitive": true,
-      "required": true
+      "required": false
     }
   },
   "server": {
