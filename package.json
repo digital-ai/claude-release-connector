@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Claude Desktop extension (MCPB) bridging to the Digital.ai Release MCP server",
   "private": true,
-  "license": "Apache-2.0",
+  "license": "MIT",
   "author": "Digital.ai",
   "scripts": {
     "validate": "npx --yes @anthropic-ai/mcpb validate manifest.json",

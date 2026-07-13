@@ -1,10 +1,60 @@
-# Claude ↔ Digital.ai Release MCP Connector
+# Digital.ai Release MCP Server — Claude Desktop Extension
 
-Connect Claude (claude.ai, Claude Desktop, Claude Code) to [Digital.ai Release](https://digital.ai/products/release/) through the MCP server built into Release 26.1.5+ — search and manage releases, templates, tasks, variables and more, with the permissions of the connected Release user.
+One-click-installable Claude Desktop extension (MCPB) that connects Claude to the MCP server built
+into [Digital.ai Release](https://digital.ai/products/release/) 26.1.5+. It bundles a thin
+stdio→Streamable-HTTP bridge ([`mcp-remote`](https://www.npmjs.com/package/mcp-remote)) that forwards
+Claude Desktop's local MCP traffic to your Release instance's MCP endpoint, authenticated with your
+Personal Access Token. Claude acts with that user's Release permissions.
 
-## Repository layout
+Search and manage releases, templates, folders, phases, tasks, gates, variables and configurations,
+and read activity logs — all from Claude.
 
-| Path | What it is                                                                                                                                                          |
-|---|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`mcpb/claude-release-mcp-extension/`](./mcpb/claude-release-mcp-extension/) | **Claude Desktop extension** (MCPB bundle) — a stdio→Streamable-HTTP bridge to your Release instance. `npm install && npm run build` → `digitalai-release-mcp.mcpb` |
-| [`docs/connecting-claude-to-release.md`](./docs/connecting-claude-to-release.md) | Customer guide: all Claude surfaces, PAT, admin notes, troubleshooting                                                                                              |
+## Install
+
+1. Download `digitalai-release-mcp.mcpb` and double-click it (or drag it into Claude Desktop, or
+   Settings → Extensions → Advanced settings → Install Extension).
+2. Fill in the configuration form:
+   - **Release server URL** — e.g. `https://release.mycompany.com` (base URL). If your Release
+     server uses a non-default servlet path (`spring.mvc.servlet.path`, default `/s`) or a context
+     root, paste the full MCP endpoint URL instead.
+   - **Personal Access Token** — create one in Release under *User profile → Access tokens*
+     (stored in your OS keychain by Claude Desktop).
+3. Enable the extension. Ask Claude e.g. *"List my active releases"*.
+
+For the other Claude surfaces (claude.ai, Claude Code) and for administrator setup, see
+[docs/connecting-claude-to-release.md](./docs/connecting-claude-to-release.md).
+
+## Requirements
+
+- Digital.ai Release 26.1.5+ with the MCP server feature enabled (default) and the
+  `xlr-mcp-tools-plugin` installed
+- Claude Desktop ≥ 0.10 (macOS/Windows/Linux)
+- Network reachability from your machine to the Release instance
+
+## Build from source
+
+```bash
+npm install        # pulls mcp-remote
+npm run build      # validates manifest.json and packs digitalai-release-mcp.mcpb
+```
+
+## Privacy Policy
+
+Digital.ai's privacy policy: <https://digital.ai/privacy-policy/>
+
+This extension collects nothing — no telemetry, no analytics, no backend of its own. It is a bridge:
+requests go from Claude Desktop on your machine directly to the Release instance *you* configure, and
+nothing is routed through Digital.ai or any third party. Your Release URL and Personal Access Token
+are stored locally by Claude Desktop, with the token held in your OS keychain. Release data stays in
+your own Release instance under your organization's policies. Your prompts and tool results are
+processed by Claude under [Anthropic's privacy policy](https://www.anthropic.com/legal/privacy), as in
+any Claude conversation.
+
+## Support
+
+- **This extension** — [open an issue](https://github.com/digital-ai/claude-release-connector/issues)
+- **Digital.ai Release itself** — <https://support.digital.ai>
+
+## License
+
+MIT — see [LICENSE](./LICENSE).

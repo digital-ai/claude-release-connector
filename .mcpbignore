@@ -1,0 +1,28 @@
+# What `mcpb pack` must NOT put into the distributed .mcpb.
+#
+# IMPORTANT: pack walks the FILESYSTEM, not git. Files that are untracked (and therefore safe from
+# the public GitHub repo) are still packed unless they are excluded here. Everything below is either
+# internal or dead weight in a bundle that ships to users.
+
+# Internal Doc
+docs/
+
+# Previously built bundles (never nest a .mcpb inside a .mcpb)
+*.mcpb
+
+# Old pre-flatten layout, if any remnants linger
+mcpb/
+
+# Editor / OS / tooling noise
+.idea/
+.claude/
+*.iml
+*.ipr
+*.iws
+.DS_Store
+*.log
+.gitignore
+.mcpbignore
+
+# The user-facing README, LICENSE, manifest.json, icon.png, server/ and node_modules/
+# are intentionally NOT excluded — they are the bundle.

@@ -3,19 +3,19 @@
   "name": "digitalai-release-mcp",
   "display_name": "Digital.ai Release MCP Server",
   "version": "1.0.0",
-  "description": "Connect Claude to your Digital.ai Release instance: search and manage releases, templates, tasks, variables and more.",
-  "long_description": "Gives Claude access to the MCP server built into Digital.ai Release (26.1.5+). Claude can list and inspect releases and templates, create releases from templates, start releases, manage folders, phases, tasks, gates, variables and configurations, and read activity logs \u2014 all with the permissions of the Release user whose Personal Access Token you configure. Mutating tools respect the Release MCP server's read-only mode.",
+  "description": "Run, manage, and troubleshoot your release pipelines with Claude",
+  "long_description": "Claude works directly inside your Digital.ai Release pipelines: find and start releases, build templates with phases, tasks, and gates, manage variables and configurations, and pull activity logs to diagnose failures. Claude acts with the permissions of your Personal Access Token, and read-only mode lets you explore safely without making changes. Requires Release 26.1.5+.",
   "author": {
-    "name": "Digital.ai",
-    "url": "https://digital.ai",
-    "email": "support@digital.ai"
+    "name": "Digital.ai Software Inc.",
+    "url": "https://github.com/digital-ai"
   },
-  "homepage": "https://digital.ai/products/release/",
+  "homepage": "https://docs.digital.ai/release/docs/how-to/release-mcp-server",
   "documentation": "https://docs.digital.ai/release/docs/how-to/release-mcp-server",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "icon": "icon.png",
   "keywords": [
     "digital.ai",
+    "mcp",
     "release",
     "devops",
     "release-orchestration",
@@ -68,6 +68,6 @@
     "type": "git",
     "url": "https://github.com/digital-ai/claude-release-connector"
   },
-  "support": "https://support.digital.ai",
+  "support": "https://github.com/digital-ai/claude-release-connector/issues",
   "tools_generated": true
 }
