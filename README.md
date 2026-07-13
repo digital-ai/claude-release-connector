@@ -21,7 +21,7 @@ and read activity logs — all from Claude.
      (stored in your OS keychain by Claude Desktop).
 3. Enable the extension. Ask Claude e.g. *"List my active releases"*.
 
-For the other Claude surfaces (claude.ai, Claude Code) and for administrator setup, see
+For Claude Code, and for administrator setup, see
 [docs/connecting-claude-to-release.md](./docs/connecting-claude-to-release.md).
 
 ## Requirements

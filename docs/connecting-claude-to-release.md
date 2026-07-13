@@ -19,16 +19,16 @@ Claude authenticates to the MCP endpoint with a Release **Personal Access Token 
 the `x-release-personal-token` request header. This works on every Release 26.1.5+ installation and
 needs no server-side setup.
 
-**Creating a PAT:** Release → user profile → **Access tokens** → create; copy the `rpa_…` value.
+**Creating a PAT:** Release → user profile → **Access tokens** → Generate token; copy the `rpa_…` value.
 Claude will act with exactly this user's permissions; use a least-privilege account for
 read-mostly workflows.
 
 ## Claude Desktop (recommended for most users)
 
-Install the **Digital.ai Release MCP Server** extension (from the Claude Desktop extensions
-directory, or by double-clicking the `digitalai-release-mcp.mcpb` file):
+Install the **Digital.ai Release MCP Server** extension by double-clicking the
+`digitalai-release-mcp.mcpb` file (or dragging it into Claude Desktop):
 
-1. Claude Desktop → Settings → Extensions → install the extension.
+1. Claude Desktop → Settings → Extensions → Advanced settings → Install Extension.
 2. In the configuration form:
    - **Release server URL** — e.g. `https://release.mycompany.com`. If your server uses a
      non-default servlet path or context root, paste the full endpoint URL.
@@ -48,25 +48,12 @@ claude mcp add --transport http release https://release.mycompany.com/s/mcp \
 
 Verify with `claude mcp list` (should show connected), then ask Claude about your releases.
 
-## claude.ai (web / mobile)
-
-Settings → Connectors → **Add custom connector** → URL `https://release.mycompany.com/s/mcp`.
-
-Custom connectors on claude.ai need the token supplied as a request header, which Anthropic
-enables per connector through their static-headers option — contact our Digital.ai representative
-to arrange this. claude.ai's servers must also be able to reach Release server over public
-HTTPS.
-
 ## Requirements & administrator notes
 
 - **Release 26.1.5+** with the MCP server feature enabled (default) and the tools plugin installed.
 - **Public URL correctness:** the endpoint URL Release advertises derives from the configured
   server URL (`server.url`) — set it to the URL users actually reach (reverse-proxy hostname,
   HTTPS).
-- **Reverse proxy / TLS:** expose `/s/mcp` unmodified. If the `xl.server.http.allowed-hosts`
-  firewall is enabled, include the public hostname. claude.ai requires a publicly trusted
-  certificate; the Claude Desktop extension currently requires a publicly trusted CA as well
-  (private-CA support is on the roadmap).
 - **Governance:** flip **read-only mode** to expose only non-mutating tools; connected clients
   update their tool list live. Disable the MCP server entirely from the same settings page
   (endpoint answers 404). All tool calls are attributed to the authenticated user in Release's
