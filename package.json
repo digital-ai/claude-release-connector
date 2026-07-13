@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Claude Desktop extension (MCPB) bridging to the Digital.ai Release MCP server",
   "private": true,
+  "type": "module",
   "license": "MIT",
   "author": "Digital.ai",
   "scripts": {
@@ -11,6 +12,6 @@
     "version": "node scripts/sync-manifest-version.mjs && git add manifest.json"
   },
   "dependencies": {
-    "mcp-remote": "0.1.38"
+    "@modelcontextprotocol/sdk": "1.29.0"
   }
 }
