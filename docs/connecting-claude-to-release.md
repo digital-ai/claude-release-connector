@@ -26,7 +26,7 @@ read-mostly workflows.
 ## Claude Desktop (recommended for most users)
 
 Install the **Digital.ai Release MCP Server** extension by double-clicking the
-`digitalai-release-mcp.mcpb` file (or dragging it into Claude Desktop):
+`digitalai-release-mcp-<version>.mcpb` file (or dragging it into Claude Desktop):
 
 1. Claude Desktop → Settings → Extensions → Advanced settings → Install Extension.
 2. In the configuration form:

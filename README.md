@@ -11,7 +11,7 @@ and read activity logs — all from Claude.
 
 ## Install
 
-1. Download `digitalai-release-mcp.mcpb` and double-click it (or drag it into Claude Desktop, or
+1. Download the `.mcpb` file and double-click it (or drag it into Claude Desktop, or
    Settings → Extensions → Advanced settings → Install Extension).
 2. Fill in the configuration form:
    - **Release server URL** — e.g. `https://release.mycompany.com` (base URL). If your Release
@@ -35,8 +35,11 @@ For Claude Code, and for administrator setup, see
 
 ```bash
 npm install        # pulls mcp-remote
-npm run build      # validates manifest.json and packs digitalai-release-mcp.mcpb
+npm run build      # validates manifest.json, packs digitalai-release-mcp-<version>.mcpb
 ```
+
+To cut a new version, use `npm version patch|minor|major` — it bumps `package.json` and
+`manifest.json` together (the build refuses to run if the two disagree).
 
 ## Privacy Policy
 

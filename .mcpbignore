@@ -7,6 +7,9 @@
 # Internal Doc
 docs/
 
+# Build tooling — not part of the shipped extension
+scripts/
+
 # Previously built bundles (never nest a .mcpb inside a .mcpb)
 *.mcpb
 
