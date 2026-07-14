@@ -2,7 +2,7 @@
   "manifest_version": "0.2",
   "name": "digitalai-release-mcp",
   "display_name": "Digital.ai Release MCP Server",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Run, manage, and troubleshoot your release pipelines with Claude",
   "long_description": "Claude works directly inside your Digital.ai Release pipelines: find and start releases, build templates with phases, tasks, and gates, manage variables and configurations, and pull activity logs to diagnose failures. Claude acts with the permissions of your Personal Access Token, and read-only mode lets you explore safely without making changes. Requires Release 26.1.5+.",
   "author": {

@@ -1,6 +1,6 @@
 {
   "name": "digitalai-release-mcp",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Claude Desktop extension (MCPB) bridging to the Digital.ai Release MCP server",
   "private": true,
   "license": "MIT",
